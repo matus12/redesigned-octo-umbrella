@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -25,14 +24,28 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+      <span
+         style={{
+          backgroundImage: "url('https://image.tmdb.org/t/p/original/xRWht48C2V8XNfzvPehyClOvDni.jpg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: "0.4",
+          position: "fixed",
+          width: "100%",
+          height: "100%"
+         }}
+      >
+      </span>
         <div
           style={{
             margin: `0 auto`,
             maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
+            padding: `200px`,
             paddingTop: 0,
-          }}
+            position: "relative",
+            zIndex: "2",
+        }}
         >
           <main>{children}</main>
           <footer>
