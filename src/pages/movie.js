@@ -4,11 +4,11 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SecondPage = () => (
+const SecondPage = (state) => (
   <Layout>
     <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
+    {console.log(state)}
+    <h1>{state.location.state.value}</h1>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )

@@ -1,5 +1,50 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+import { Card } from "./Card"
+
+let maxWidth = "330px";
+
+const onMouseEnter = () => {
+  maxWidth = "350px";
+  console.log("enter ", maxWidth);
+}
+
+const onMouseLeave = () => {
+  maxWidth = "330px";
+  console.log("leave ", maxWidth);
+}
+
+const card = (movie, index) =>
+  <div
+    key={index}
+    style={{
+      backgroundColor: "rgba(0,0,0,0.1)",
+      textAlign: "center",
+      boxShadow: "10px 4px 8px 0 rgba(0,0,0,0.5)",
+      maxWidth: maxWidth,
+      border: "1px",
+      margin: "15px 10px 15px 10px"
+    }}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+  >
+    <Card movie={movie} index={3} />
+    <h3
+      style={{
+        padding: "20px",
+        margin: "0px"
+      }}
+    >
+      {movie.original_title}
+    </h3>
+    <img
+      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+      alt="poster_image"
+      style={{
+        paddingBottom: "0px"
+      }}
+    />
+  </div>
 
 const Content = () => (
   <StaticQuery
@@ -17,25 +62,27 @@ const Content = () => (
       }
     `}
     render={data => {
-        console.log(data.movieDb.data.results)
-        return data
-          .movieDb
-          .data
-          .results
-          .map((edge, index) => {
-            return  <div key={index}>
-                      <h2>
-                        {edge.original_title}
-                      </h2>
-                      <p>
-                        {edge.overview}
-                      </p>
-                      <img 
-                        src={`https://image.tmdb.org/t/p/w500${edge.poster_path}`}
-                        alt="poster_image"  
-                      />
-                    </div>
-          })
+      return (<div
+        style={{
+          display: "inline-flex",
+          flexWrap: "wrap",
+          justifyContent: "space-evenly",
+          marginTop: "50px"
+        }}
+      >{
+          data
+            .movieDb
+            .data
+            .results
+            .map((movie, index) =>
+              <Card
+                movie={movie}
+                index={index}
+              />
+            )
+        }
+      </div>
+      )
     }}
   />
 )

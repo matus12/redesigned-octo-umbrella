@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
@@ -24,28 +17,37 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-      <span
-         style={{
-          backgroundImage: "url('https://image.tmdb.org/t/p/original/xRWht48C2V8XNfzvPehyClOvDni.jpg')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: "0.4",
-          position: "fixed",
-          width: "100%",
-          height: "100%"
-         }}
-      >
-      </span>
+        <span
+          style={{
+            backgroundImage: "url('https://image.tmdb.org/t/p/original/xRWht48C2V8XNfzvPehyClOvDni.jpg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: "0.4",
+            position: "fixed",
+            width: "100%",
+            height: "100%"
+          }}
+        >
+        </span>
+        <h1
+        style={{
+          position: "relative",
+          zIndex: "2",
+          textAlign: "center",
+          paddingTop: "30px"
+        }}>
+          NECHAAAAAAAAAAJ
+        </h1>
         <div
           style={{
             margin: `0 auto`,
-            maxWidth: 960,
+            maxWidth: 1800,
             padding: `200px`,
             paddingTop: 0,
             position: "relative",
             zIndex: "2",
-        }}
+          }}
         >
           <main>{children}</main>
           <footer>
